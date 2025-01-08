@@ -1,8 +1,8 @@
-# 1. Install Requirements
+1. Install Requirements
 `pip install -r requirements.txt`
 
-# 2. Fill your telegram token where is:
+2. Fill your telegram token where is:
 `TOKEN="YOUR TELEGRAM TOKEN HERE"`
 
-# 2. Run
+3. Run
 `python main.py`
