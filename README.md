@@ -6,7 +6,7 @@
 ```bash
 https://www.ffmpeg.org/
 ```
-1.1. <p>After installing, ensure that you set the FFmpeg path as an environment variable</p>
+<p>1.1. After installing, ensure that you set the FFmpeg path as an environment variable</p>
 
 2. Clone the repository:
 ```bash
