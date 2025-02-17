@@ -1,15 +1,22 @@
+import subprocess
 import os
 import logging
+from dotenv import load_dotenv  # Import dotenv for .env support
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 from yt_dlp import YoutubeDL
 
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+# Ensure yt-dlp is always updated
+subprocess.run(["pip", "install", "--upgrade", "yt-dlp"], check=True)
 
-TOKEN = "YOUR TELEGRAM TOKEN HERE"
+# Load environment variables from .env file
+load_dotenv()
+TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")  # Read token from .env
 
 DOWNLOAD_FOLDER = './'
 os.makedirs(DOWNLOAD_FOLDER, exist_ok=True)
+
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text('Hello! Send me a YouTube link and I will convert it to MP3 for you.')
@@ -30,6 +37,8 @@ async def download_audio(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
                     'preferredcodec': 'mp3',
                     'preferredquality': '320',
                 }],
+                'noplaylist': True,
+                'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36',
             }
 
             with YoutubeDL(ydl_opts) as ydl:
