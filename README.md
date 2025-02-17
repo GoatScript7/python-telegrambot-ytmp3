@@ -21,7 +21,7 @@ pip install -r requirements.txt
 4. Set Up Environment Variables
 Create a `.env` file in the project directory and add your Telegram bot token:
 ```bash
-TELEGRAM_BOT_TOKEN=`YOUR_TELEGRAM_BOT_TOKEN`
+TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN
 ```
 
 5. Run Bot locally:
