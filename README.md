@@ -18,12 +18,13 @@ https://github.com/GoatScript7/python-telegrambot-ytmp3
 pip install -r requirements.txt
 ```
 
-4. Fill your telegram token where is:
+4. Set Up Environment Variables
+Create a .env file in the project directory and add your Telegram bot token:
 ```bash
-TOKEN="YOUR TELEGRAM TOKEN HERE"
+TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN
 ```
 
-5. Run locally:
+5. Run Bot locally:
 ```bash
 python main.py
 ```
